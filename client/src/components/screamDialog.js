@@ -132,7 +132,7 @@ class ScreamDialog extends Component {
           <Typography variant="body1">{body}</Typography>
           <LikeButton screamId={screamId} />
           <span>{likeCount} likes </span>
-          <MyButton tip="comments">
+          <MyButton tip="Comments">
             <ChatIcon color="primary" />
           </MyButton>
           <span>{commentCount} comments</span>
@@ -146,7 +146,7 @@ class ScreamDialog extends Component {
       <Fragment>
         <MyButton
           onClick={this.handleOpen}
-          tip="Expand Scream"
+          tip="Expand Thought"
           tipClassName={classes.expandButton}
         >
           <UnfoldMore color="primary" />

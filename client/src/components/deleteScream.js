@@ -16,24 +16,24 @@ const styles = () => ({
   deleteButton: {
     top: '10%',
     left: '90%',
-    position: 'absolute'
-  }
+    position: 'absolute',
+  },
 });
 
 export class DeleteScream extends Component {
   state = {
-    open: false
+    open: false,
   };
 
   handleOpen = () => {
     this.setState({
-      open: true
+      open: true,
     });
   };
 
   handleClose = () => {
     this.setState({
-      open: false
+      open: false,
     });
   };
 
@@ -46,7 +46,7 @@ export class DeleteScream extends Component {
     return (
       <Fragment>
         <MyButton
-          tip="Delete Scream"
+          tip="Delete Thought"
           onClick={this.handleOpen}
           btnClassName={classes.deleteButton}
         >
@@ -78,7 +78,7 @@ export class DeleteScream extends Component {
 DeleteScream.propTypes = {
   deleteScream: propTypes.func.isRequired,
   classes: propTypes.object.isRequired,
-  screamId: propTypes.string.isRequired
+  screamId: propTypes.string.isRequired,
 };
 
 export default connect(null, { deleteScream })(

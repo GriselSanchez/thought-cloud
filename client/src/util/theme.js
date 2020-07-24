@@ -1,9 +1,9 @@
 export default {
   palette: {
     primary: {
-      light: '#4633DC',
+      light: '#ff3d00',
       main: '#6B5CE3',
-      dark: '#6B5CE3',
+      dark: '#ff3d00',
       contrastText: '#fff',
     },
     secondary: {
@@ -19,11 +19,14 @@ export default {
   form: {
     textAlign: 'center',
   },
+  signUp: {
+    marginBottom: 50,
+  },
   image: {
     margin: '20px auto 20px auto',
   },
   icon: {
-    maxWidth: 50,
+    maxWidth: 100,
     margin: '20px auto 20px auto',
   },
   pageTitle: {
@@ -34,6 +37,7 @@ export default {
   },
   button: {
     marginTop: 20,
+    marginBottom: 20,
     position: 'relative',
   },
   customError: {

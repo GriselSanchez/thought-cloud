@@ -16,8 +16,8 @@ import MyButton from '../util/myButton';
 const styles = () => ({
   ...theme,
   button: {
-    float: 'right'
-  }
+    float: 'right',
+  },
 });
 
 class EditDetails extends Component {
@@ -25,14 +25,14 @@ class EditDetails extends Component {
     bio: '',
     website: '',
     location: '',
-    open: false
+    open: false,
   };
 
-  mapUserDetailsToState = credentials => {
+  mapUserDetailsToState = (credentials) => {
     this.setState({
       bio: credentials.bio ? credentials.bio : '',
       website: credentials.website ? credentials.website : '',
-      location: credentials.location ? credentials.location : ''
+      location: credentials.location ? credentials.location : '',
     });
   };
 
@@ -43,19 +43,19 @@ class EditDetails extends Component {
 
   handleOpen = () => {
     this.setState({
-      open: true
+      open: true,
     });
   };
 
   handleClose = () => {
     this.setState({
-      open: false
+      open: false,
     });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -63,7 +63,7 @@ class EditDetails extends Component {
     const userDetails = {
       bio: this.state.bio,
       website: this.state.website,
-      location: this.state.location
+      location: this.state.location,
     };
 
     this.props.editUserDetails(userDetails);
@@ -75,7 +75,7 @@ class EditDetails extends Component {
     return (
       <Fragment>
         <MyButton
-          tip="EditDetails"
+          tip="Edit Details"
           onClick={this.handleOpen}
           btnClassName={classes.button}
         >
@@ -140,11 +140,11 @@ class EditDetails extends Component {
 
 EditDetails.propTypes = {
   editUserDetails: propTypes.func.isRequired,
-  classes: propTypes.object.isRequired
+  classes: propTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  credentials: state.user.credentials
+const mapStateToProps = (state) => ({
+  credentials: state.user.credentials,
 });
 
 export default connect(mapStateToProps, { editUserDetails })(

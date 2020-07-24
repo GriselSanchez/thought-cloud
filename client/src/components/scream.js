@@ -20,15 +20,15 @@ const styles = () => ({
   card: {
     display: 'flex',
     marginBottom: 20,
-    position: 'relative'
+    position: 'relative',
   },
   image: {
     minWidth: 200,
-    objectFit: 'cover'
+    objectFit: 'cover',
   },
   content: {
-    padding: 25
-  }
+    padding: 25,
+  },
 });
 export class Scream extends Component {
   render() {
@@ -42,12 +42,12 @@ export class Scream extends Component {
         userHandle,
         screamId,
         likeCount,
-        commentCount
+        commentCount,
       },
       user: {
         authenticated,
-        credentials: { handle }
-      }
+        credentials: { handle },
+      },
     } = this.props;
     const deleteButton = authenticated && userHandle === handle && (
       <DeleteScream screamId={screamId} />
@@ -75,7 +75,7 @@ export class Scream extends Component {
           <Typography variant="body1">{body}</Typography>
           <LikeButton screamId={screamId} />
           <span>{likeCount} Likes </span>
-          <MyButton tip="comments">
+          <MyButton tip="Comments">
             <ChatIcon color="primary" />
           </MyButton>
           <span>{commentCount} comments</span>
@@ -94,11 +94,11 @@ Scream.propTypes = {
   user: propTypes.object.isRequired,
   scream: propTypes.object.isRequired,
   classes: propTypes.object.isRequired,
-  openDialog: propTypes.bool
+  openDialog: propTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = (state) => ({
+  user: state.user,
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(Scream));

@@ -20,7 +20,7 @@ class Navbar extends Component {
               <PostScream />
               <Link to="/">
                 <MyButton tip="Home">
-                  <HomeIcon />
+                  <HomeIcon style={{ fill: 'white' }} />
                 </MyButton>
               </Link>
             </Fragment>

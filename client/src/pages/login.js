@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import propTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import AppIcon from '../images/app_icon.png';
+import AppIcon from '../images/app-icon.png';
 import { Typography, Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -17,7 +17,7 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      errors: {},
     };
   }
 
@@ -25,25 +25,25 @@ class Login extends Component {
     if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
     this.props.loginUser(userData, this.props.history);
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   render() {
     const {
       classes,
-      UI: { loading }
+      UI: { loading },
     } = this.props;
     const { errors } = this.state;
     return (
@@ -111,16 +111,16 @@ Login.propTypes = {
   classes: propTypes.object.isRequired,
   loginUser: propTypes.func.isRequired,
   user: propTypes.object.isRequired,
-  UI: propTypes.object.isRequired
+  UI: propTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  UI: state.UI
+  UI: state.UI,
 });
 
 const mapActionsToProps = {
-  loginUser
+  loginUser,
 };
 
 export default connect(

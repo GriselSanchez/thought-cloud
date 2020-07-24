@@ -79,7 +79,7 @@ class PostScream extends Component {
     return (
       <Fragment>
         <MyButton onClick={this.handleOpen} tip="Post">
-          <AddIcon />
+          <AddIcon style={{ fill: 'white' }} />
         </MyButton>
         <Dialog
           open={this.state.open}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import propTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import AppIcon from '../images/app_icon.png';
+import AppIcon from '../images/app-icon.png';
 import { Typography, Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -19,7 +19,7 @@ class SignUp extends Component {
       handle: '',
       confirmPassword: '',
       handle: '',
-      errors: {}
+      errors: {},
     };
   }
 
@@ -27,33 +27,33 @@ class SignUp extends Component {
     if (nextProps.UI.errors) this.setState({ errors: nextProps.UI.errors });
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
       email: this.state.email,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
-      handle: this.state.handle
+      handle: this.state.handle,
     };
     this.props.signUpUser(userData, this.props.history);
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   render() {
     const {
       classes,
-      UI: { loading }
+      UI: { loading },
     } = this.props;
     const { errors } = this.state;
     return (
       <Grid container className={classes.form}>
         <Grid item sm />
-        <Grid item sm>
+        <Grid item sm className={classes.signUp}>
           <img src={AppIcon} alt="twitter" className={classes.icon} />
           <Typography variant="h3" className={classes.pageTitle}>
             SignUp
@@ -139,16 +139,16 @@ SignUp.propTypes = {
   classes: propTypes.object.isRequired,
   user: propTypes.object.isRequired,
   UI: propTypes.object.isRequired,
-  signUpUser: propTypes.func.isRequired
+  signUpUser: propTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  UI: state.UI
+  UI: state.UI,
 });
 
 const mapActionsToProps = {
-  signUpUser
+  signUpUser,
 };
 
 export default connect(
