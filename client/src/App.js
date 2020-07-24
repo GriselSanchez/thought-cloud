@@ -21,7 +21,7 @@ import User from './pages/user';
 const theme = createMuiTheme(themeObject);
 
 axios.defaults.baseURL =
-  'https://us-central1-social-ape-daa68.cloudfunctions.net/api';
+  'https://us-central1-my-thought-cloud.cloudfunctions.net/api';
 
 const token = localStorage.getItem('idToken');
 if (token) {

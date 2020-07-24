@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "my-thought-cloud",
+    "thought-cloud": "my-thought-cloud"
+  }
+}
