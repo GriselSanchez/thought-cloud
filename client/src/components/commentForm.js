@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-// MUI Stuff
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-// Redux stuff
 import { connect } from 'react-redux';
 import { submitComment } from '../redux/actions/dataActions';
 import theme from '../util/theme';
 
 const styles = () => ({
-  ...theme
+  ...theme,
 });
 
 class CommentForm extends Component {
   state = {
     body: '',
-    errors: {}
+    errors: {},
   };
 
   componentWillReceiveProps(nextProps) {
@@ -29,10 +27,10 @@ class CommentForm extends Component {
     }
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.submitComment(this.props.screamId, { body: this.state.body });
   };
@@ -64,7 +62,6 @@ class CommentForm extends Component {
             Submit
           </Button>
         </form>
-        <hr className={classes.visibleSeparator} />
       </Grid>
     ) : null;
     return commentFormMarkup;
@@ -76,12 +73,12 @@ CommentForm.propTypes = {
   UI: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   screamId: PropTypes.string.isRequired,
-  authenticated: PropTypes.bool.isRequired
+  authenticated: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   UI: state.UI,
-  authenticated: state.user.authenticated
+  authenticated: state.user.authenticated,
 });
 
 export default connect(mapStateToProps, { submitComment })(

@@ -10,14 +10,17 @@ import dayjs from 'dayjs';
 const styles = () => ({
   ...theme,
   commentImage: {
-    maxWidth: '100%',
+    maxWidth: 100,
     height: 100,
     objectFit: 'cover',
-    borderRadius: '50%'
+    borderRadius: '50%',
   },
   commentData: {
-    marginLeft: 20
-  }
+    marginLeft: 40,
+  },
+  commentContainer: {
+    marginTop: 40,
+  },
 });
 
 class Comments extends Component {
@@ -25,7 +28,7 @@ class Comments extends Component {
     const { comments, classes } = this.props;
 
     return (
-      <Grid container>
+      <Grid container className={classes.commentContainer}>
         {comments.map((comment, index) => {
           const { body, createdAt, userImage, userHandle } = comment;
           return (
@@ -70,7 +73,7 @@ class Comments extends Component {
 }
 
 Comments.propTypes = {
-  comments: propTypes.array.isRequired
+  comments: propTypes.array.isRequired,
 };
 
 export default withStyles(styles)(Comments);

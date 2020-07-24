@@ -17,29 +17,34 @@ import CloseIcon from '@material-ui/icons/Close';
 const styles = () => ({
   ...theme,
   submitButton: {
-    position: 'relative'
+    position: 'relative',
+    marginTop: 30,
+    marginBottom: 20,
   },
   progressSpinner: {
-    position: 'absolute'
+    position: 'absolute',
   },
   closeButton: {
     position: 'absolute',
     left: '90%',
-    top: '10%'
-  }
+    top: '5%',
+  },
+  newWindow: {
+    padding: 20,
+  },
 });
 
 class PostScream extends Component {
   state = {
     open: false,
     body: '',
-    errors: {}
+    errors: {},
   };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.UI.errors)
       this.setState({
-        errors: nextProps.UI.errors
+        errors: nextProps.UI.errors,
       });
 
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
@@ -55,13 +60,13 @@ class PostScream extends Component {
     this.props.clearErrors();
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.postScream({ body: this.state.body });
   };
@@ -69,11 +74,11 @@ class PostScream extends Component {
     const { errors } = this.state;
     const {
       classes,
-      UI: { loading }
+      UI: { loading },
     } = this.props;
     return (
       <Fragment>
-        <MyButton onClick={this.handleOpen} tip="Post a Scream">
+        <MyButton onClick={this.handleOpen} tip="Post">
           <AddIcon />
         </MyButton>
         <Dialog
@@ -81,6 +86,7 @@ class PostScream extends Component {
           onClose={this.handleClose}
           fullWidth
           maxWidth="sm"
+          className={classes.newWindow}
         >
           <MyButton
             tip="Close"
@@ -89,16 +95,15 @@ class PostScream extends Component {
           >
             <CloseIcon />
           </MyButton>
-          <DialogTitle>Post a new scream</DialogTitle>
+          <DialogTitle>Post a new thought</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit}>
               <TextField
                 name="body"
                 type="text"
-                label="scream"
+                label="What are you thinking right now?"
                 multiline
                 rows="3"
-                placeholder="Scream you pussy"
                 error={errors.comment ? true : false}
                 helperText={errors.comment}
                 className={classes.textField}
@@ -128,11 +133,11 @@ class PostScream extends Component {
 PostScream.propTypes = {
   postScream: propTypes.func.isRequired,
   clearErrors: propTypes.func.isRequired,
-  UI: propTypes.object.isRequired
+  UI: propTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  UI: state.UI
+const mapStateToProps = (state) => ({
+  UI: state.UI,
 });
 
 export default connect(mapStateToProps, { postScream, clearErrors })(

@@ -43,12 +43,12 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  authenticated: state.user.authenticated
+const mapStateToProps = (state) => ({
+  authenticated: state.user.authenticated,
 });
 
 Navbar.propTypes = {
-  authenticated: propTypes.bool.isRequired
+  authenticated: propTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(Navbar);

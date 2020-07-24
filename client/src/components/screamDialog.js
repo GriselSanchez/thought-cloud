@@ -24,37 +24,39 @@ const styles = () => ({
   ...theme,
   invisibleSeparator: {
     border: 'none',
-    margin: 4
+    margin: 4,
   },
   profileImage: {
     maxWidth: 200,
     height: 200,
-    borderRadious: '50%',
-    objectFit: 'cover'
+    objectFit: 'cover',
+  },
+  profileInfo: {
+    padding: 10,
   },
   dialogContent: {
-    padding: 50
+    padding: 50,
   },
   closeButton: {
     position: 'absolute',
-    left: '90%'
+    left: '90%',
   },
   expandButton: {
     position: 'absolute',
-    left: '90%'
+    left: '90%',
   },
   progress: {
     position: 'absolute',
     left: '50%',
-    top: '30%'
-  }
+    top: '30%',
+  },
 });
 
 class ScreamDialog extends Component {
   state = {
     open: false,
     oldPath: '',
-    newPath: ''
+    newPath: '',
   };
 
   componentDidMount() {
@@ -93,9 +95,9 @@ class ScreamDialog extends Component {
         commentCount,
         userImage,
         userHandle,
-        comments
+        comments,
       },
-      UI: { loading }
+      UI: { loading },
     } = this.props;
 
     const dialogMarkup = loading ? (
@@ -113,7 +115,7 @@ class ScreamDialog extends Component {
             <img src={NoImg} className={classes.profileImage} alt="profile" />
           )}
         </Grid>
-        <Grid item sm={7}>
+        <Grid className={classes.profileInfo} item sm={7}>
           <Typography
             component={Link}
             color="primary"
@@ -175,17 +177,17 @@ ScreamDialog.propTypes = {
   getScream: propTypes.func.isRequired,
   screamId: propTypes.string.isRequired,
   userHandle: propTypes.string.isRequired,
-  scream: propTypes.object.isRequired
+  scream: propTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   scream: state.data.scream,
-  UI: state.UI
+  UI: state.UI,
 });
 
 const mapActionsToProps = {
   getScream,
-  clearErrors
+  clearErrors,
 };
 
 export default connect(
