@@ -1,5 +1,5 @@
 # Thought Cloud
-This project helped me improve my skills in:
+Skills I've improved in this project:
 * React.js
 * Node.js
 * Firebase
